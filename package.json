@@ -1,0 +1,34 @@
+{
+  "name": "ifmael",
+  "version": "0.1.0",
+  "description": "My personal blog post",
+  "main": "index.js",
+  "scripts": {
+    "build": "lerna run build --parallel",
+    "build-studio": "lerna bootstrap && cd studio && npm run build",
+    "build-web": "lerna bootstrap && (cd studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN npm run graphql-deploy) && (cd web && npm run build)",
+    "dev": "lerna run dev --parallel",
+    "format": "lerna run format",
+    "lint": "lerna run lint",
+    "postinstall": "lerna bootstrap"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ifmael/ifmael.git"
+  },
+  "keywords": [
+    "blog",
+    "javascript",
+    "gastby",
+    "sanity.io"
+  ],
+  "author": "ifmael",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ifmael/ifmael/issues"
+  },
+  "homepage": "https://github.com/ifmael/ifmael#readme",
+  "devDependencies": {
+    "lerna": "^3.20.2"
+  }
+}
