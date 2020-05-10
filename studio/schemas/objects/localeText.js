@@ -1,7 +1,4 @@
-const supportedLanguages = [
-  {id: 'es', title: 'Spanish', isDefault: true},
-  {id: 'en', title: 'English'},
-]
+import languages from '../config/languages'
 
 export default {
   name: 'localeText',
@@ -13,7 +10,7 @@ export default {
       options: {collapsible: true}
     }
   ],
-  fields: supportedLanguages.map(lang => (
+  fields: languages.map(lang => (
     {
       title: lang.title,
       name: lang.id,
