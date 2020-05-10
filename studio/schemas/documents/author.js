@@ -6,7 +6,12 @@ export default {
     {
       name: 'name',
       title: 'Name',
-      type: 'localeString'
+      type: 'string'
+    },
+    {
+      name: 'nickname',
+      title: 'Nickname',
+      type: 'string'
     },
     {
       name: 'bio',
@@ -20,7 +25,7 @@ export default {
       description: 'Slug for the person',
       type: 'slug',
       options: {
-        source: 'name',
+        source: 'nickname',
         maxLength: 100
       }
     },
