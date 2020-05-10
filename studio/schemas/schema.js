@@ -13,9 +13,11 @@ import settings from './documents/settings'
 import tags from './documents/tags'
 
 // Object types
+import localeBlock from './objects/localeBlock'
 import localeString from './objects/localeString'
 import localeText from './objects/localeText'
 import mainImage from './objects/mainImage'
+
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -33,6 +35,7 @@ export default createSchema({
     tags,
 
     //Objects
+    localeBlock,
     localeString,
     localeText,
     mainImage
