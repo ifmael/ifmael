@@ -1,3 +1,5 @@
+import  languages from '../config/languages';
+
 export default {
   name: 'post',
   type: 'document',
@@ -12,19 +14,33 @@ export default {
     {
       // TODO: Maybe it is necessary to make a custom type.
       name: 'description',
-      titlle: 'Description',
+      title: 'Description',
       description: 'Post Summary. A little introduction',
       type: 'localeText'
+    },
+    {
+      name: 'languages',
+      title: 'Available languages',
+      description: 'In which langugues will be availaible the post',
+      type:'array',
+      of: [
+        { type: 'string' }
+      ],
+      options: {
+        list: languages
+                .map(language => {
+                  return {
+                    value: language.id,
+                    title: language.title
+                  }
+                })
+      }
     },
     {
       name: 'slug',
       title: 'Slug',
       description: 'Slug for the blog post',
-      type: 'slug',
-      options: {
-        source: 'title',
-        maxLength: 100
-      }
+      type: 'localeSlug'
     },
     {
       name: 'category',
