@@ -2,6 +2,7 @@ import languages from '../config/languages'
 
 export default {
   name: 'localeBlock',
+  title: 'Locale Block',
   type: 'object',
   fieldsets: [
     {

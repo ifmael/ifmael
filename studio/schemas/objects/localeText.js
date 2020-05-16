@@ -2,6 +2,7 @@ import languages from '../config/languages'
 
 export default {
   name: 'localeText',
+  title: 'Locale Text',
   type: 'object',
   fieldsets: [
     {
