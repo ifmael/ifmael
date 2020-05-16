@@ -1,0 +1,1 @@
+module.exports = transformTitle = (title) => title
