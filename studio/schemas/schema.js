@@ -14,6 +14,7 @@ import tags from './documents/tags'
 
 // Object types
 import localeBlock from './objects/localeBlock'
+import localeSlug from './objects/localeSlug'
 import localeString from './objects/localeString'
 import localeText from './objects/localeText'
 import mainImage from './objects/mainImage'
@@ -36,6 +37,7 @@ export default createSchema({
 
     //Objects
     localeBlock,
+    localeSlug,
     localeString,
     localeText,
     mainImage
