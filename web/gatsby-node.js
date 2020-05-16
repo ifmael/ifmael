@@ -1,60 +1,66 @@
+const path = require('path')
+
 async function createBlogPostPages(graphql, actions) {
   try {
     const {
       createPage
     } = actions;
 
-    const postQuery = `{
-      allSanityPost {
-        nodes {
-          _id
-          _createdAt
-          _rawBody
-          title {
-            en
-            es
-          }
-          tags {
-            title {
-              en
-              es
-            }
-            slug {
-              current
-            }
-          }
-          slug {
-            current
-          }
-          category {
-            title {
-              en
-              es
-            }
-            slug {
-              current
-            }
-          }
-          description {
-            en
-            es
-          }
-          mainImage {
-            caption
-            alt
-            asset {
-              _id
+    const postPage = `
+      {
+        allSanityPost {
+          edges {
+            node {
+              id
+              slug {
+                en {
+                  current
+                }
+                es {
+                  current
+                }
+              }
+              languages
             }
           }
         }
       }
-    }`;
+    `;
 
-    const result = await graphql(postQuery)
+    const result = await graphql(postPage)
     if (result.errors) {
       console.log("Error retrieving data from graphql api", result.errors);
       throw result.errors;
     }
+
+    // TODO: Change for conditional chaining
+    const posts = (result.data.allSanityPost || {}).edges || [];
+    const blogPostPath = path.resolve('./src/templates/blogPost.js');
+
+    posts
+      .map( post => {
+        const {id, slug = {}, languages = []} = post.node;
+        languages
+                .forEach(language =>{
+                  const path = `/${language}/blog/${slug[language].current}`;
+                
+                  createPage({
+                    path,
+                    component: blogPostPath,
+                    context: { 
+                      id,
+                      en: language === 'en' ? true : false,
+                      es: language === 'es' ? true : false,
+                      language: language
+                    }
+                  })
+                })
+
+        
+        
+
+      })
+
 
   } catch (error) {
     console.log(error.message);
