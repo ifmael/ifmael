@@ -41,24 +41,17 @@ async function createBlogPostPages(graphql, actions) {
       .map( post => {
         const {id, slug = {}, languages = []} = post.node;
         languages
-                .forEach(language =>{
-                  const path = `/${language}/blog/${slug[language].current}`;
-                
-                  createPage({
-                    path,
-                    component: blogPostPath,
-                    context: { 
-                      id,
-                      en: language === 'en' ? true : false,
-                      es: language === 'es' ? true : false,
-                      language: language
-                    }
-                  })
-                })
-
-        
-        
-
+          .forEach(language =>{
+            const path = `/${language}/blog/${slug[language].current}`;
+            createPage({
+              path,
+              component: blogPostPath,
+              context: {
+                id,
+                locale: language
+              }
+            })
+          })
       })
 
 
@@ -66,8 +59,6 @@ async function createBlogPostPages(graphql, actions) {
     console.log(error.message);
   }
 }
-
-
 
 exports.createPages = async ({
   graphql,
