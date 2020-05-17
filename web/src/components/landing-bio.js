@@ -2,6 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
+import { useTranslation } from "react-i18next"
+import { languages } from "prismjs"
 
 const Container = styled.div`
   text-align: center;
@@ -26,27 +28,21 @@ const NameHeader = styled.h1`
   margin-bottom: 0;
 `
 
-const LandingBio = () => (
-  <StaticQuery
-    query={graphql`
-      query LandingSiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => (
-      <OuterContainer>
-        <Container>
-          <NameHeader>{data.site.siteMetadata.title}</NameHeader>
-          <Description>{data.site.siteMetadata.subtitle}</Description>
-        </Container>
-      </OuterContainer>
-    )}
-  />
-)
+const LandingBio = ({language}) => {
+  console.log(language)
+  const { t, i18n } = useTranslation()
+  i18n.changeLanguage(language);
+  /*
+              <NameHeader>{data.site.siteMetadata.title}</NameHeader>
+        <Description>{data.site.siteMetadata.subtitle}</Description>*/
+  return (
+    <OuterContainer>
+      <Container>
+        <NameHeader>{ t('LandingBio:name') }</NameHeader>
+      </Container>
+    </OuterContainer>
+  )
+}
 
 NameHeader.propTypes = {
   siteTitle: PropTypes.string,
