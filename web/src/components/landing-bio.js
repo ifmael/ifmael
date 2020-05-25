@@ -1,6 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
 import { useTranslation } from "react-i18next"
 import { languages } from "prismjs"
@@ -28,17 +27,13 @@ const NameHeader = styled.h1`
   margin-bottom: 0;
 `
 
-const LandingBio = ({language}) => {
-  console.log(language)
-  const { t, i18n } = useTranslation()
-  i18n.changeLanguage(language);
-  /*
-              <NameHeader>{data.site.siteMetadata.title}</NameHeader>
-        <Description>{data.site.siteMetadata.subtitle}</Description>*/
+const LandingBio = ({ locale }) => {
+  const { t } = useTranslation()
+
   return (
     <OuterContainer>
       <Container>
-        <NameHeader>{ t('LandingBio:name') }</NameHeader>
+        <NameHeader> { t('landingBio:name') } </NameHeader>
       </Container>
     </OuterContainer>
   )

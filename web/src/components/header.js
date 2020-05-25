@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import styled from "@emotion/styled"
 import PropTypes from "prop-types"
 import React from "react"
+import Menu from "./menu"
 
 const Content = styled.div`
   max-width: 860px;
@@ -72,16 +73,17 @@ const SiteHeader = styled.header`
   justify-content: center;
 `
 
-const Header = ({ siteTitle }) => (
+const Header = ({locale}) => (
   <SiteHeader>
     <Content>
-      <p>
-        <HomeLink to="/">{siteTitle}</HomeLink>
+{/*       <p>
+        <HomeLink to="/"> Isma</HomeLink>
         <NavLink to="/blog">Blog</NavLink>
         <GitHubLink href="https://github.com/niklasmtj/gatsby-starter-julia">
-          GitHub
+          GitHub - { locale }
         </GitHubLink>
-      </p>
+      </p> */}
+      <Menu locale={locale} />
     </Content>
   </SiteHeader>
 )
