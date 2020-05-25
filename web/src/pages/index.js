@@ -1,16 +1,14 @@
 import React from "react"
-
 import LandingBio from "../components/landing-bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "../utils/i18n"
 
-const IndexPage = () =>{
-  return (
-    <Layout>
-      <SEO title="Home" />
-      <LandingBio language="es"/>
-    </Layout>
-  )
-}
+const IndexPage = ( { pageContext: { locale } } ) => (
+  <Layout locale={ locale }>
+    <SEO title="Home" />
+    <LandingBio locale={ locale }/>
+  </Layout>
+)
+
 export default IndexPage
