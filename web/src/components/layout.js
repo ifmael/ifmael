@@ -1,13 +1,5 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
-import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
+import LocaleProvider from "./locale-provider"
 import styled from "@emotion/styled"
 
 import Header from "./header"
@@ -29,37 +21,22 @@ const Footer = styled.footer`
   justify-content: center;
 `
 
-const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => (
-      <>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <Content>
-          <main>{children}</main>
-          <Footer>
-            <p>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            </p>
-            <GatsbyLink href="https://www.gatsbyjs.org">Gatsby</GatsbyLink>
-          </Footer>
-        </Content>
-      </>
-    )}
-  />
-)
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+const Layout = ({ children, locale }) => {
+  return (
+    <LocaleProvider locale={ locale }>
+      <Header locale={locale}/>
+      <Content>
+        <main>{children}</main>
+        <Footer>
+          <p>
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          </p>
+          <GatsbyLink href="https://www.gatsbyjs.org">Gatsby</GatsbyLink>
+        </Footer>
+      </Content>
+    </LocaleProvider>
+  )
 }
 
 export default Layout
