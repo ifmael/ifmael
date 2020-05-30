@@ -4,7 +4,8 @@ const localeSchema = (locale = 'es') => {
   
   const schema = {
     landingBio: {
-      name: esOrEn('Ismael Rodriguez', 'Isma')
+      name: esOrEn('Ismael Rodriguez', 'Isma'),
+      contact: esOrEn('Pagina de contacto', 'Contact page')
     },
     menu: {
       home: esOrEn('Inicio', 'Home'),

@@ -6,11 +6,13 @@ i18n
   .use(initReactI18next)
   .init({
     resources: { ...localeSchema(), ...localeSchema('en') },
+    lng: 'es',
     fallbackLng: 'es',
     debug: true,
     interpolation: {
       escapeValue: false,
-    }
+    },
+    saveMissing: false
   });
 
 
