@@ -1,6 +1,6 @@
-import React,{ useEffect } from "react"
+import React from "react"
 import styled from "@emotion/styled"
-import { useTranslation } from "react-i18next"
+import LocaleProvider from './locale-provider'
 
 import Header from "./header"
 import "./layout.css"
@@ -22,14 +22,8 @@ const Footer = styled.footer`
 `
 
 const Layout = ({ children, locale }) => {
-  const { i18n } = useTranslation();
-
-  useEffect( () => {
-    i18n.language !== locale && i18n.changeLanguage(locale);
-  }, [locale]);
-
   return (
-    <>
+    <LocaleProvider locale={ locale }>
       <Header locale={locale}/>
       <Content>
         <main>{children}</main>
@@ -41,7 +35,7 @@ const Layout = ({ children, locale }) => {
           <GatsbyLink href="https://www.gatsbyjs.org">Gatsby</GatsbyLink>
         </Footer>
       </Content>
-    </>
+    </LocaleProvider>
   )
 }
 
