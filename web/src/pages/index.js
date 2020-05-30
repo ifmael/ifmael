@@ -7,7 +7,7 @@ import "../utils/i18n"
 const IndexPage = ( { pageContext: { locale } } ) => (
   <Layout locale={ locale }>
     <SEO title="Home" />
-    <LandingBio locale={ locale }/>
+    <LandingBio />
   </Layout>
 )
 
