@@ -73,17 +73,10 @@ const SiteHeader = styled.header`
   justify-content: center;
 `
 
-const Header = ({locale}) => (
+const Header = () => (
   <SiteHeader>
     <Content>
-{/*       <p>
-        <HomeLink to="/"> Isma</HomeLink>
-        <NavLink to="/blog">Blog</NavLink>
-        <GitHubLink href="https://github.com/niklasmtj/gatsby-starter-julia">
-          GitHub - { locale }
-        </GitHubLink>
-      </p> */}
-      <Menu locale={locale} />
+      <Menu />
     </Content>
   </SiteHeader>
 )

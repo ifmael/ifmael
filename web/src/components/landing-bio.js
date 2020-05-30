@@ -27,7 +27,7 @@ const NameHeader = styled.h1`
   margin-bottom: 0;
 `
 
-const LandingBio = ({ locale }) => {
+const LandingBio = () => {
   const { t } = useTranslation()
 
   return (
