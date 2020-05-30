@@ -35,5 +35,5 @@ const MenuItem = ({ name, url, internal, position }) => (
                 ? <Link css={ [styleItem, (position === 0 && noMarginLeft) ] } to={ url }>{ name }</Link>
                 : <a css={ styleItem } href={ url }>{ name }</a>
 )
-// <Link css={ [styleItem, (position === 0 && noMarginLeft) ] } to={ url }>{ name }</Link>
+
 export default MenuItem
