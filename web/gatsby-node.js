@@ -33,6 +33,18 @@ async function createBlogPostPages(graphql, actions) {
       console.log("Error retrieving data from graphql api", result.errors);
       throw result.errors;
     }
+    const blogPostsPath = path.resolve('./src/templates/blogPosts.js');
+
+    // list of blogpost
+    ['es','en'].forEach( locale =>{
+      createPage({
+        path: `/blog/${locale}`,
+        component: blogPostsPath,
+        context: {
+          locale
+        }
+      })
+    });
 
     // TODO: Change for conditional chaining
     const posts = (result.data.allSanityPost || {}).edges || [];
