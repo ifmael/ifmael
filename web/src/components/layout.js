@@ -2,7 +2,7 @@ import React from "react"
 import styled from "@emotion/styled"
 import LocaleProvider from './locale-provider'
 
-import Header from "./header"
+import Header from "./common/Header"
 import "./layout.css"
 
 const Content = styled.div`

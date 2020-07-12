@@ -23,5 +23,10 @@ module.exports = [
     component: 'Component404',
     es: '/no-encontrado',
     en: '/no-found'
+  },
+  {
+    component: 'ComponentAboutMe',
+    es: '/sobre-mi',
+    en: '/about-me'
   }
 ]

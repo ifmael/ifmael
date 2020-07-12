@@ -1,14 +1,15 @@
 import React from 'react'
-import pages from '../config/pages'
+import pages from '../../../config/pages';
 import { useTranslation } from "react-i18next"
-import MenuItem from "./menu-item"
+import MenuItem from "../MenuItem"
 
 const Menu = () => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
-  const slug = window.location.pathname
-  const page = pages.find(page => page['es'] === slug || page['en'] === slug)
-  
+  const slug = window.location.pathname;
+  const slugWithouttrailing = slug.charAt(slug.length - 1) === '/' && slug.length > 1 ? slug.slice(0,-1) : slug
+  const page = pages.find(page => page['es'] === slugWithouttrailing || page['en'] === slugWithouttrailing )
+
   return (
     <nav aria-labelledby='primary-navigation'>
       <ul>

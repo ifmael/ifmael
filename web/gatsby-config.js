@@ -40,6 +40,6 @@ module.exports = {
         token: process.env.MY_SANITY_TOKEN,
       },
     },
-
+    `gatsby-plugin-remove-trailing-slashes`
   ],
 }

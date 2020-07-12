@@ -70,7 +70,7 @@ exports.createPages = async ({
 exports.onCreatePage = ({ page, actions }) =>{
   const { createPage, deletePage } = actions;
   const { internalComponentName } = page
-
+  
   const pageConfig = pages.find(p => p.component === internalComponentName)
 
   if( pageConfig ){

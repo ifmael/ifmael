@@ -1,5 +1,5 @@
 import React from "react"
-import Contact from "../components/contact"
+import Contact from "../components/main/Contact"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "../utils/i18n"
@@ -7,7 +7,7 @@ import "../utils/i18n"
 const ContactPage = ( { pageContext: { locale } } ) => (
   <Layout locale={ locale }>
     <SEO title="Home" />
-    <Contact locale= { locale }/>
+    <Contact/>
   </Layout>
 )
 
