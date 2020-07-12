@@ -5,7 +5,7 @@
       "type": "node",
       "request": "launch",
       "protocol": "inspector",
-      "program": "${workspaceRoot}/node_modules/gatsby/dist/bin/gatsby",
+      "program": "${workspaceRoot}/web/node_modules/gatsby/dist/bin/gatsby",
       "args": ["develop"],
       "stopOnEntry": false,
       "runtimeArgs": ["--nolazy"],
@@ -16,7 +16,7 @@
       "type": "node",
       "request": "launch",
       "protocol": "inspector",
-      "program": "${workspaceRoot}/node_modules/gatsby/dist/bin/gatsby",
+      "program": "${workspaceRoot}/web/node_modules/gatsby/dist/bin/gatsby",
       "args": ["build"],
       "stopOnEntry": false,
       "runtimeArgs": ["--nolazy"],
@@ -31,4 +31,3 @@
     }
   ]
 }
-//node --nolazy --inspect-brk node_modules/gatsby/dist/bin/gatsby develop

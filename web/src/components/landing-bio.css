@@ -1,0 +1,32 @@
+
+/* h1 {
+  border-right: solid 3px rgba(0,0,0,.75);
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 2.8rem;
+  color: rgba(0,0,0,.70);
+  margin: 0 auto;
+  display: inline-block;
+}
+ */
+/* Animation */
+/* h1 {
+  animation: animated-text 4s steps(40,end) 1s 1 normal both,
+             animated-cursor 600ms steps(40,end) infinite;
+} */
+
+/* text animation */
+
+/* @keyframes animated-text{
+  0% { width: 0px; }
+  100% { width: 100%; border:none;}
+  
+  
+}
+ */
+/* cursor animations */
+
+/* @keyframes animated-cursor{
+  from{border-right-color: rgba(255,0,255,.75);}
+  to{border-right-color: transparent;}
+} */

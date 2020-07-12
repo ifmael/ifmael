@@ -3,6 +3,8 @@ import PropTypes from "prop-types"
 import styled from "@emotion/styled"
 import { useTranslation } from "react-i18next"
 import { languages } from "prismjs"
+import './landing-bio.css'
+import 'animate.css'
 
 const Container = styled.div`
   text-align: center;
@@ -20,6 +22,7 @@ const Description = styled.p`
   padding: 0;
   margin-bottom: 1rem;
   font-size: 1.4rem;
+${'' /* a */}
 `
 
 const NameHeader = styled.h1`
@@ -28,12 +31,16 @@ const NameHeader = styled.h1`
 `
 
 const LandingBio = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
+
 
   return (
-    <OuterContainer>
+     <OuterContainer>
       <Container>
-        <NameHeader> { t('landingBio:name') } </NameHeader>
+        <NameHeader> 
+          { t('landingBio:name') }
+        </NameHeader>
+        <Description> Esto es una descripcion Esto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcionEsto es una descripcion</Description>
       </Container>
     </OuterContainer>
   )

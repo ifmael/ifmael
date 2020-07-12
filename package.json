@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/ifmael/ifmael#readme",
   "devDependencies": {
+    "babel-preset-gatsby": "^0.4.7",
     "lerna": "^3.20.2"
   }
 }
