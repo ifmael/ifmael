@@ -29,7 +29,7 @@ export default [
     en: '/contact',
     internal: true
   }
-]
+];
 
 
 

@@ -18,10 +18,10 @@ ${'' /*   display: flex;
   justify-content: center; */}
 `
 
-const Header = () => (
+const Header = ({ dinamicUrlMenu }) => (
   <SiteHeader>
     <Content>
-      <Menu />
+      <Menu dinamicUrlMenu = { dinamicUrlMenu } />
     </Content>
   </SiteHeader>
 )

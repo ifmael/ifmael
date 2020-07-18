@@ -3,13 +3,14 @@ import pages from '../../../config/pages';
 import { useTranslation } from "react-i18next"
 import MenuItem from "../MenuItem"
 
-const Menu = () => {
+const Menu = ({ dinamicUrlMenu }) => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
   const slug = window.location.pathname;
   const slugWithouttrailing = slug.charAt(slug.length - 1) === '/' && slug.length > 1 ? slug.slice(0,-1) : slug
   const page = pages.find(page => page['es'] === slugWithouttrailing || page['en'] === slugWithouttrailing )
-
+  
+  debugger
   return (
     <nav aria-labelledby='primary-navigation'>
       <ul>
@@ -26,7 +27,10 @@ const Menu = () => {
         }
         <MenuItem 
           name={ language === 'es' ? 'en' : 'es'}
-          url={page[(language === 'es' ? 'en' : 'es')]}
+          url={ dinamicUrlMenu
+                          ? dinamicUrlMenu
+                          : page[(language === 'es' ? 'en' : 'es')]
+          }
           internal={ true }
         />
       </ul>

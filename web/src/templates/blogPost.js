@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from 'gatsby'
-import Layout from "../components/layout"
+import Layout from "../components/common/layout/Main";
 import localize from "../utils/localize"
 
 const BlogPostTemplate = ( { pageContext, data, errrors } ) => {
