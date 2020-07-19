@@ -9,9 +9,10 @@ const BlogPostTemplate = ( { pageContext, data, errrors } ) => {
   const postLocalised = localizeWithType(post, locale);
   const differentLocale = locale === 'es' ? 'en' : 'es';
   const rootDifferentLocale = `/blog/${differentLocale}`
-  const slugDifferentLocale = post.slug[differentLocale].current
-                                                              ? `${rootDifferentLocale}/${post.slug[differentLocale].current}`
-                                                              : rootDifferentLocale ;
+  debugger;
+  const slugDifferentLocale = post.slug[differentLocale]
+                                                      ? `${rootDifferentLocale}/${post.slug[differentLocale].current}`
+                                                      : rootDifferentLocale ;
   return (
     <Layout
       locale = { locale }
