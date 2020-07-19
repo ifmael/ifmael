@@ -1,18 +1,28 @@
 import React from "react"
 import { graphql } from 'gatsby'
 import Layout from "../components/common/layout/Main";
-import localize from "../utils/localize"
+import { localizeWithType } from "../utils/localize";
 
 const BlogPostTemplate = ( { pageContext, data, errrors } ) => {
-  const { post} = data
-  const { locale } = pageContext
-  const postLocalised = localize(post, locale)
-  return (<Layout>
-    {
-      postLocalised && postLocalised.title &&
-        <p> {postLocalised.title}</p>
-    }
-  </Layout>)
+  const { post} = data;
+  const { locale } = pageContext;
+  const postLocalised = localizeWithType(post, locale);
+  const differentLocale = locale === 'es' ? 'en' : 'es';
+  const rootDifferentLocale = `/blog/${differentLocale}`
+  const slugDifferentLocale = post.slug[differentLocale].current
+                                                              ? `${rootDifferentLocale}/${post.slug[differentLocale].current}`
+                                                              : rootDifferentLocale ;
+  return (
+    <Layout
+      locale = { locale }
+      dinamicUrlMenu = { slugDifferentLocale }
+    >
+      {
+        postLocalised && postLocalised.title &&
+          <p> {postLocalised.title}</p>
+      }
+    </Layout>
+  );
 }
 
 
@@ -51,6 +61,14 @@ export const query = graphql`
         alt
         asset {
           _id
+        }
+      }
+      slug {
+        es {
+          current
+        }
+        en {
+          current
         }
       }
     }

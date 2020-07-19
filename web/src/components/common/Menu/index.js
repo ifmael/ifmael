@@ -10,7 +10,6 @@ const Menu = ({ dinamicUrlMenu }) => {
   const slugWithouttrailing = slug.charAt(slug.length - 1) === '/' && slug.length > 1 ? slug.slice(0,-1) : slug
   const page = pages.find(page => page['es'] === slugWithouttrailing || page['en'] === slugWithouttrailing )
   
-  debugger
   return (
     <nav aria-labelledby='primary-navigation'>
       <ul>

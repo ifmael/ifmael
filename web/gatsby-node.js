@@ -92,14 +92,14 @@ async function createBlogPostPages(graphql, actions) {
           languages = []
         } = post.node;
         languages
-          .forEach(language => {
-            const path = `/${language}/blog/${slug[language].current}`;
+          .forEach(locale => {
+            const path = `/blog/${locale}/${slug[locale].current}`;
             createPage({
               path,
               component: blogPostPath,
               context: {
                 id,
-                locale: language
+                locale: locale
               }
             })
           })

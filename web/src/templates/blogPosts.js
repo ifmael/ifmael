@@ -2,33 +2,30 @@ import React from "react"
 import { graphql } from 'gatsby'
 import Layout from "../components/common/layout/Main";
 import NavigationPages from '../components/common/NavigationPages';
-import localize from "../utils/localize"
+import PostBoxList from '../components/common/PostBoxList';
+import { localize } from "../utils/localize"
 
 const BlogPostTemplate = ( { pageContext, data, errrors } ) => {
   const { allSanityPost: { edges: posts}} = data;
   const { locale, previousPage, nextPage } = pageContext;
   const urlToAnotherLocale = locale === 'es' ? '/blog/en': '/blog/es';
+  const postWithoutNodeProperty = posts.map( postNode => {
+    const {node: post} = postNode;
+    return post;
+  })
+  const postLocalised = localize(postWithoutNodeProperty, locale);
+  const postLocalisedWithSlug = postLocalised.map( post =>{
+    return { ...post, slug: `/blog/${locale}/${post.slug.current}`}
+  });
 
-/*   const postLocalised = localize(post, locale) */
-  debugger
   return (
     <Layout 
       locale = { locale }
       dinamicUrlMenu = { urlToAnotherLocale }
     >
-      {
-        posts.map((postNode, index) =>{
-          const {node: post} = postNode;
-
-          return (<div key={ index }>
-                  <p>{ post._createdAt} </p>
-                  <p>{ post.title[locale]} </p>
-                  <p>{ post.description[locale]} </p>
-                  <p>{ post._createdAt} </p>
-                  <hr />
-                </div>)
-        })
-      }
+      <PostBoxList 
+        posts = { postLocalisedWithSlug }
+      />
       <NavigationPages
         previousPage = { previousPage }
         nextPage = { nextPage}
@@ -48,7 +45,7 @@ export const query = graphql`
       edges {
         node {
           id
-          _createdAt
+          createdOn: _createdAt
           title {
             en
             es
