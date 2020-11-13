@@ -4,6 +4,7 @@ import Layout from "../components/common/layout/Main";
 import { localizeWithType } from "../utils/localize";
 
 const BlogPostTemplate = ( { pageContext, data, errrors } ) => {
+  debugger
   const { post} = data;
   const { locale } = pageContext;
   const postLocalised = localizeWithType(post, locale);
@@ -72,6 +73,7 @@ export const query = graphql`
           current
         }
       }
+      _rawBody(resolveReferences: {maxDepth: 5})
     }
   }
 `

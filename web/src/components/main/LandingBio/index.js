@@ -35,7 +35,7 @@ const LandingBio = () => {
 
 
   return (
-     <OuterContainer>
+    <OuterContainer>
       <Container>
         <NameHeader> 
           { t('landingBio:name') }
